@@ -1,4 +1,4 @@
-$INSTALL_PYTHON_VERSION="3.6.2"
+INSTALL_PYTHON_VERSION="3.6.2"
 
 CPU_CORE_NUM=`grep processor /proc/cpuinfo | wc -l`
 

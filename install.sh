@@ -56,3 +56,4 @@ source ~/.bashrc
 
 # 指定バージョンのpythonをインストール
 pyenv install $INSTALL_PYTHON_VERSION
+pyenv global $INSTALL_PYTHON_VERSION
