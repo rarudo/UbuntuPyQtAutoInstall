@@ -24,10 +24,11 @@ sudo apt-get -y install python3.5-dev
 #apt-get install -y mesa-common-dev libglu1-mesa-dev
 
 # qtのインストル
+cp qt-installer-noninteractive.qs /var/tmp/
 cd /var/tmp
 curl -L -O http://download.qt.io/official_releases/qt/5.9/5.9.1/qt-opensource-linux-x64-5.9.1.run -C -
 chmod +x qt-opensource-linux-x64-5.9.1.run
-./qt-opensource-linux-x64-5.9.1.run
+./qt-opensource-linux-x64-5.9.1.run --script qt-installer-noninteractive.qs
 
 
 # sipのインストール
@@ -55,6 +56,8 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc 
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 source ~/.bashrc
+PYENV_ROOT="$HOME/.pyenv"
+PATH="$PYENV_ROOT/bin:$PATH"
 
 # 指定バージョンのpythonをインストール
 pyenv install $INSTALL_PYTHON_VERSION
