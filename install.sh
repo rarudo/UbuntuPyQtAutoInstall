@@ -1,4 +1,8 @@
+$INSTALL_PYTHON_VERSION="3.6.2"
+
 CPU_CORE_NUM=`grep processor /proc/cpuinfo | wc -l`
+
+
 # アップデート処理
 apt-get -y update
 apt-get -y upgrade
@@ -40,3 +44,15 @@ cd PyQt5_gpl-5.9
 python3 configure.py --qmake /opt/Qt5.9.1/5.9.1/gcc_64/bin/qmake
 make -j$CPU_CORE_NUM
 make install
+
+# pyenvのインストール
+apt-get -y install libssl-dev zlib1g-dev libbz2-dev wget curl llvm libncurses5-dev libncursesw5-dev libpng-dev git
+git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+git clone https://github.com/yyuu/pyenv-pip-rehash.git ~/.pyenv/plugins/pyenv-pip-rehash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc 
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+
+# 指定バージョンのpythonをインストール
+pyenv install $INSTALL_PYTHON_VERSION
