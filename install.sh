@@ -39,11 +39,12 @@ make -j$CPU_CORE_NUM
 sudo make install
 
 # pyqtのインストール
+sudo apt-get -y install expect
 cd /tmp
 wget https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9/PyQt5_gpl-5.9.tar.gz
 tar zxvf PyQt5_gpl-5.9.tar.gz
 cd PyQt5_gpl-5.9
-python3 configure.py --qmake /opt/Qt5.9.1/5.9.1/gcc_64/bin/qmake
+python3 configure.py --qmake ~/Qt5.9.1/5.9.1/gcc_64/bin/qmake
 expect -c "
 spawn env LANG=C make -j$CPU_CORE_NUM
 expect \"license?\"

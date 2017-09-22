@@ -4,7 +4,6 @@ INSTALL_PYTHON_VERSION="3.6.2"
 
 CPU_CORE_NUM=`grep processor /proc/cpuinfo | wc -l`
 
-
 # アップデート処理
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -40,6 +39,7 @@ make -j$CPU_CORE_NUM
 sudo make install
 
 # pyqtのインストール
+sudo apt-get -y install expect
 cd /tmp
 wget https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9/PyQt5_gpl-5.9.tar.gz
 tar zxvf PyQt5_gpl-5.9.tar.gz
