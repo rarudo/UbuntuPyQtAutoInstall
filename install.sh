@@ -44,14 +44,15 @@ cd /tmp
 wget https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9/PyQt5_gpl-5.9.tar.gz
 tar zxvf PyQt5_gpl-5.9.tar.gz
 cd PyQt5_gpl-5.9
-python3 configure.py --qmake ~/Qt5.9.1/5.9.1/gcc_64/bin/qmake
 expect -c "
-spawn env LANG=C make -j$CPU_CORE_NUM
-expect \"license?\"
+timeout 0
+spawn python3 configure.py --qmake ${HOME}/Qt5.9.1/5.9.1/gcc_64/bin/qmake
+expect \"the license?\"
 send \"yes\n\"
+expect \"$\"
 exit 0
 "
-#make -j$CPU_CORE_NUM
+make -j$CPU_CORE_NUM
 sudo make install
 
 # pyenvのインストール

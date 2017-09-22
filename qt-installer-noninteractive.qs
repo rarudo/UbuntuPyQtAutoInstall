@@ -27,11 +27,11 @@ Controller.prototype.TargetDirectoryPageCallback = function()
 }
 
 Controller.prototype.ComponentSelectionPageCallback = function() {
-    var widget = gui.currentPageWidget();
-
-    widget.selectAll();
-    widget.deselectComponent('qt.59.src');
-
+//    var widget = gui.currentPageWidget();
+//
+//    widget.selectAll();
+//    widget.deselectComponent('qt.59.src');
+//
     gui.clickButton(buttons.NextButton);
 }
 
