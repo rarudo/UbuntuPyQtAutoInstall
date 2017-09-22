@@ -45,9 +45,12 @@ wget https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9/PyQt5_gpl-5.9.ta
 tar zxvf PyQt5_gpl-5.9.tar.gz
 cd PyQt5_gpl-5.9
 expect -c "
+set timeout -1
 spawn python3 configure.py --qmake ${HOME}/Qt5.9.1/5.9.1/gcc_64/bin/qmake
-expect \"license\?\"
+expect \"the license?\"
 send \"yes\n\"
+expect \"$\"
+exit 0
 "
 make -j$CPU_CORE_NUM
 sudo make install

@@ -19,6 +19,7 @@ sudo apt-get -y install libfontconfig1
 
 # python開発者用パッケージのインストール
 sudo apt-get -y install python3.5-dev
+sudo apt-get install libbz2-dev libreadline-dev libsqlite3-dev
 
 #apt-get install -y mesa-common-dev libglu1-mesa-dev
 
@@ -45,7 +46,7 @@ wget https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9/PyQt5_gpl-5.9.ta
 tar zxvf PyQt5_gpl-5.9.tar.gz
 cd PyQt5_gpl-5.9
 expect -c "
-timeout 0
+set timeout -1
 spawn python3 configure.py --qmake ${HOME}/Qt5.9.1/5.9.1/gcc_64/bin/qmake
 expect \"the license?\"
 send \"yes\n\"
